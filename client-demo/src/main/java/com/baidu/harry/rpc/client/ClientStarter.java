@@ -1,7 +1,7 @@
 package com.baidu.harry.rpc.client;
 
 import com.baidu.harry.rpc.core.RomanClientCore;
-import com.baidu.harry.rpc.service.HelloService;
+import com.baidu.harry.rpc.expose.HelloService;
 
 /**
  * @author: harry.chen

@@ -11,6 +11,7 @@
         <module>common</module>
         <module>server-demo</module>
         <module>client-demo</module>
+        <module>service-expose</module>
     </modules>
     <packaging>pom</packaging>
 
