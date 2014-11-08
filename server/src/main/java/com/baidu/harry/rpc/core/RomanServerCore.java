@@ -11,7 +11,7 @@ public class RomanServerCore {
 
     public static void init(String service_path, int port) throws Exception {
         ServiceContainer.scanClassPath(new File(service_path));
-        new ZkServer().init(port);
+        new ZkServer().connectZookeeper(port);
         export(port);
     }
 

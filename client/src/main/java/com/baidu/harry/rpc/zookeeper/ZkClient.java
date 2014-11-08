@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
+import static com.baidu.harry.rpc.common.Contants.*;
+
 public class ZkClient {
 
-    private String groupNode = "roman";
     private ZooKeeper zk;
     private Stat stat = new Stat();
     private volatile List<String> serverList;
@@ -26,7 +27,7 @@ public class ZkClient {
      * 连接zookeeper
      */
     public void connectZookeeper() throws Exception {
-        zk = new ZooKeeper("127.0.0.1", 5000, new Watcher() {
+        zk = new ZooKeeper(ZK_HOST, SESSION_TIMEOUT, new Watcher() {
             public void process(WatchedEvent event) {
                 if (event.getState() == Event.KeeperState.SyncConnected) {
                     connectedSignal.countDown();// 倒数-1
@@ -56,16 +57,11 @@ public class ZkClient {
         for (String subNode : subList) {
             // 获取每个子节点下关联的server地址
             byte[] data = zk.getData("/" + groupNode + "/" + subNode, false, stat);
-            newServerList.add(new String(data, "utf-8"));
+            newServerList.add(new String(data, UTF8));
         }
 
         // 替换server列表
         serverList = newServerList;
-
         System.out.println("server list updated: " + serverList);
-    }
-
-    public void init() throws Exception {
-        connectZookeeper();
     }
 }

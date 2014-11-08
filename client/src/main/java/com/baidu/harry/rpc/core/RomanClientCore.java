@@ -23,7 +23,7 @@ public class RomanClientCore {
     static {
         appClient = new ZkClient();
         try {
-            appClient.init();
+            appClient.connectZookeeper();
         } catch (Exception e) {
             e.printStackTrace();
         }
