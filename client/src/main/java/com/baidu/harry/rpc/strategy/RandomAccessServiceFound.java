@@ -13,7 +13,9 @@ public class RandomAccessServiceFound implements IServiceFound {
         if (CollectionUtils.isEmpty(list)){
              throw new RuntimeException("No Server Exists.");
         }
-        String value = list.get(RandomUtil.getRandomInt(list.size()));
+        int offset = RandomUtil.getRandomInt(list.size());
+        System.out.println("offsset " + offset);
+        String value = list.get(offset);
         String[] temp = value.split(":");
         return new MutablePair<String, Integer>(temp[0], Integer.parseInt(temp[1]));
      //   return new MutablePair<String, Integer>("localhost", 8087);

@@ -9,6 +9,6 @@ import com.baidu.harry.rpc.core.RomanServerCore;
 public class Starter {
 
     public static void main(String[] args) throws Exception {
-        RomanServerCore.init(System.getProperty("user.dir") + "/server-demo/target/classes", 8087);
+        RomanServerCore.init(System.getProperty("user.dir") + "/server-demo/target/classes", 8086);
     }
 }

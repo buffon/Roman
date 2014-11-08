@@ -1,20 +1,13 @@
 package com.baidu.harry.rpc.core.handler;
 
 import com.baidu.harry.rpc.util.ServiceContainer;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.lang.reflect.Method;
 import java.net.Socket;
 
-/**
- * Created with IntelliJ IDEA.
- * User: chenyehui
- * Date: 14-11-7
- * Time: 下午3:14
- * To change this template use File | Settings | File Templates.
- */
 public class DefaultRouterHandler extends AbstractRouterHandler implements Runnable {
 
     private Socket socket;

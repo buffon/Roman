@@ -65,18 +65,7 @@ public class ZkClient {
         System.out.println("server list updated: " + serverList);
     }
 
-    /**
-     * client的工作逻辑写在这个方法中
-     * 此处不做任何处理, 只让client sleep
-     */
-    public void handle() throws InterruptedException {
-        Thread.sleep(Long.MAX_VALUE);
-    }
-
     public void init() throws Exception {
-        ZkClient ac = new ZkClient();
-        ac.connectZookeeper();
-
-       // ac.handle();
+        connectZookeeper();
     }
 }

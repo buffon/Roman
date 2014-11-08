@@ -20,20 +20,16 @@ public class RomanClientCore {
 
     private static ZkClient appClient;
 
-//    static {
-//        appClient = new ZkClient();
-//        try {
-//            appClient.init();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    static {
+        appClient = new ZkClient();
+        try {
+            appClient.init();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public static <T> T refer(final Class<T> interfaceClass) throws Exception {
-         if(appClient == null){
-            appClient = new ZkClient();
-            appClient.init();
-        }
         RandomAccessServiceFound serverFind = new RandomAccessServiceFound();
         //根据不同策略去获取对应的server值
         MutablePair<String, Integer> pair = serverFind.getServerHost(appClient.getServerList());
