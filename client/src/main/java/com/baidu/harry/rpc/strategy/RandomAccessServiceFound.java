@@ -6,6 +6,9 @@ import org.apache.commons.lang3.tuple.MutablePair;
 
 import java.util.List;
 
+/**
+ * 负载均衡策略
+ */
 public class RandomAccessServiceFound implements IServiceFound {
 
     @Override
@@ -18,6 +21,5 @@ public class RandomAccessServiceFound implements IServiceFound {
         String value = list.get(offset);
         String[] temp = value.split(":");
         return new MutablePair<String, Integer>(temp[0], Integer.parseInt(temp[1]));
-     //   return new MutablePair<String, Integer>("localhost", 8087);
     }
 }
